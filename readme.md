@@ -1,24 +1,58 @@
-# Nvim Plugin Template
+# Peepsight
 
-> This repo contains the bare minimum boilerplate to setup a Neovim Plugin in lua
+Working on a lot of code can be overwelming sometimes, so just focus on one function at the time.
+Peepsight is created to allow you to focus on a single function using treesitter.
 
-## Getting started
+## Installation
 
-Clone the project
-```bash
-git clone https://github.com/koenverburg/template-nvim-plugin.git
+Make sure you are using Neovim (v0.7) or the latest neovim nightly.
+
+Using [vim-plug](https://github.com/junegunn/vim-plug)
+
+```viml
+Plug 'koenverburg/peepsight.nvim'
 ```
 
-Then cd into the directory and launch nvim using the following command
+Using [dein](https://github.com/Shougo/dein.vim)
 
-```bash
-nvim --cmd "set rtp+=$(pwd)"
+```viml
+call dein#add('koenverburg/peepsight.nvim')
+```
+Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+```lua
+use 'koenverburg/peepsight.nvim'
+```
+## Setup
+
+```lua
+require('peepsight').setup({
+    enable = true,
+  },
+  {
+    -- go
+    "function_declaration",
+    "method_declaration",
+    "func_literal",
+
+    -- typescript
+    "arrow_function",
+    "function_declaration",
+    "generator_function_declaration"
+  }
+)
 ```
 
-After this you can call the plugin with the following command
+## Usage
 
-```bash
-:lua require('greeting').setup({ enable = true })
+```
+PeepsightEnable
+PeepsightDisable
 ```
 
-This should return `Hello World!`
+
+## Related Projects
+
+- [junegunn/limelight.vim](https://github.com/junegunn/limelight.vim)
+- [folke/twilight.nvim](https://github.com/folke/twilight.nvim)
+
