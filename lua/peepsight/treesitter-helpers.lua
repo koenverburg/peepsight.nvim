@@ -1,10 +1,9 @@
 local utils = require "peepsight.utils"
-
 local ts_utils = require "nvim-treesitter.ts_utils"
 
-local M = {}
+local ts_helpers = {}
 
-function M.walk_tree(node, types)
+function ts_helpers.walk_tree(node, types)
   local expr = node
 
   while expr do
@@ -18,10 +17,10 @@ function M.walk_tree(node, types)
 end
 
 
-function M.get_function_node(queries)
+function ts_helpers.get_node(queries)
   local cursor_node = ts_utils.get_node_at_cursor()
 
-  local node = M.walk_tree(cursor_node, queries)
+  local node = ts_helpers.walk_tree(cursor_node, queries)
 
   if not node then
     return nil
@@ -31,4 +30,4 @@ function M.get_function_node(queries)
 end
 
 
-return M
+return ts_helpers

@@ -4,20 +4,10 @@ local ts_helpers = require 'peepsight.treesitter-helpers'
 
 local sight = {}
 
-function sight.sighting_in(ns)
+function sight.sighting_in(ns, queries)
   local end_of_file = vim.fn.line('$')
 
-  local node = ts_helpers.get_function_node({
-    -- go
-    "function_declaration",
-    "method_declaration",
-    "func_literal",
-
-    -- typescript
-    "arrow_function",
-    "function_declaration",
-    "generator_function_declaration",
-  })
+  local node = ts_helpers.get_node(queries)
 
   if not node then
     return
