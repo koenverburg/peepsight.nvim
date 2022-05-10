@@ -14,5 +14,4 @@ function view.clear(namespace)
   vim.api.nvim_buf_clear_namespace(0, namespace, 0, -1)
 end
 
-
 return view

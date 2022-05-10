@@ -10,7 +10,6 @@ function utils.is_empty_line(buf, line)
   return false
 end
 
-
 function utils.set_autocmd()
   vim.api.nvim_command [[ autocmd BufWritePost,CursorMoved,CursorMovedI,WinScrolled * :lua require 'peepsight'.run() ]]
 end
