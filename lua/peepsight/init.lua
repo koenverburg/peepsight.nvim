@@ -6,7 +6,7 @@ local sight = require "peepsight.sight"
 local ns = vim.api.nvim_create_namespace "peepsight"
 
 local defaults = {
-  enable = true,
+  enable = false,
 }
 
 local default_queries = {
@@ -22,6 +22,7 @@ local default_queries = {
 }
 
 function M.enable()
+  M.options.enable = true
   sight.sighting_in(ns, M.queries)
   utils.set_autocmd()
 end
@@ -30,6 +31,7 @@ function M.disable()
   M.options.enable = false
   view.clear(ns)
 end
+
 
 function M.setup(options, queries)
   M.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
@@ -40,12 +42,18 @@ function M.setup(options, queries)
   end
 end
 
-M.setup()
-
 function M.run()
   if M.options.enable then
     view.clear(ns)
     sight.sighting_in(ns, M.queries)
+  end
+end
+
+function M.toggle()
+  if M.options.enable then
+    M.disable()
+  else
+    M.enable()
   end
 end
 
