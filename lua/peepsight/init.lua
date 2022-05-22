@@ -33,8 +33,8 @@ function M.disable()
 end
 
 
-function M.setup(options, queries)
-  M.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
+function M.setup(queries)
+  M.options = vim.tbl_deep_extend("force", {}, defaults, {})
   M.queries = vim.tbl_deep_extend("force", {}, default_queries, queries or {})
 
   if M.options.enable then
