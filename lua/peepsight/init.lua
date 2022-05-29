@@ -23,12 +23,14 @@ local default_queries = {
 
 function M.enable()
   M.options.enable = true
+
   sight.sighting_in(ns, M.queries)
   utils.set_autocmd()
 end
 
 function M.disable()
   M.options.enable = false
+
   view.clear(ns)
 end
 
