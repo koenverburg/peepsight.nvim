@@ -3,6 +3,8 @@
 Working on a lot of code can be overwelming sometimes, so just focus on one function at the time.
 Peepsight is created to allow you to focus on a single function using treesitter.
 
+[![asciicast](https://asciinema.org/a/7w0JoI88ZAEIlbTvwCZKM1voN.svg)](https://asciinema.org/a/7w0JoI88ZAEIlbTvwCZKM1voN)
+
 ## Installation
 
 Make sure you are using Neovim (v0.7) or the latest neovim nightly.
