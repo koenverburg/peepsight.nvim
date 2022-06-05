@@ -18,7 +18,7 @@ function ts_helpers.walk_tree(node, types)
   end
 end
 
-function ts_helpers.get_node(queries)
+function ts_helpers.get_node_from_query(queries)
   local cursor_node = ts_utils.get_node_at_cursor()
 
   local node = ts_helpers.walk_tree(cursor_node, queries)

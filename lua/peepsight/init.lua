@@ -1,6 +1,5 @@
 local M = {}
 local utils = require "peepsight.utils"
-local view = require "peepsight.view"
 local sight = require "peepsight.sight"
 
 local ns = vim.api.nvim_create_namespace "peepsight"
@@ -23,13 +22,15 @@ local default_queries = {
 
 function M.enable()
   M.options.enable = true
-  sight.sighting_in(ns, M.queries)
+
+  sight.focus(ns, M.queries)
   utils.set_autocmd()
 end
 
 function M.disable()
   M.options.enable = false
-  view.clear(ns)
+
+  utils.clear(ns)
 end
 
 
@@ -44,8 +45,9 @@ end
 
 function M.run()
   if M.options.enable then
-    view.clear(ns)
-    sight.sighting_in(ns, M.queries)
+    utils.clear(ns)
+
+    sight.focus(ns, M.queries)
   end
 end
 
