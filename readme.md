@@ -5,7 +5,7 @@ Peepsight is created to allow you to focus on a single function using treesitter
 
 ## Installation
 
-Make sure you are using Neovim (v0.7) or the latest neovim nightly.
+Make sure you are using Neovim (v0.7) or the latest Neovim nightly.
 
 Using [vim-plug](https://github.com/junegunn/vim-plug)
 
