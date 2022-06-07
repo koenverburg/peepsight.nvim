@@ -10,6 +10,10 @@ function ts_helpers.walk_tree(node, types)
     if utils.contains(types, expr:type()) then
       return expr
     end
+
+    if expr:parent() == nil then
+      return
+    end
     expr = expr:parent()
   end
 
@@ -18,14 +22,21 @@ function ts_helpers.walk_tree(node, types)
   end
 end
 
+local prev_node = nil
 function ts_helpers.get_node_from_query(queries)
   local cursor_node = ts_utils.get_node_at_cursor()
+
+  if cursor_node:type() == "document" then
+    return prev_node
+  end
 
   local node = ts_helpers.walk_tree(cursor_node, queries)
 
   if not node then
     return nil
   end
+
+  prev_node = node
 
   return node
 end
