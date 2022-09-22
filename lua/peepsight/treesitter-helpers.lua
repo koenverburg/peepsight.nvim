@@ -26,6 +26,10 @@ local prev_node = nil
 function ts_helpers.get_node_from_query(queries)
   local cursor_node = ts_utils.get_node_at_cursor()
 
+  if not cursor_node then
+    return nil
+  end
+
   if cursor_node:type() == "document" then
     return prev_node
   end
