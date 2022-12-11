@@ -35,6 +35,8 @@ require('peepsight').setup({
   "func_literal",
 
   -- typescript
+  "class_declaration",
+  "method_definition",
   "arrow_function",
   "function_declaration",
   "generator_function_declaration"
@@ -47,6 +49,10 @@ require('peepsight').setup({
 PeepsightEnable
 PeepsightDisable
 ```
+
+## Grammers
+
+- [TypeScript Grammer](https://github.com/tree-sitter/tree-sitter-typescript/blob/master/common/define-grammar.js)
 
 
 ## Related Projects
