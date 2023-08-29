@@ -50,6 +50,16 @@ PeepsightEnable
 PeepsightDisable
 ```
 
+Alternatively you can start **Peepsight** with the `Lua` API:
+
+```lua
+local peepsight = require("peepsight")
+
+peepsight.enable()
+peepsight.disable()
+peepsight.toggle()
+```
+
 ## Grammers
 
 - [TypeScript Grammer](https://github.com/tree-sitter/tree-sitter-typescript/blob/master/common/define-grammar.js)
