@@ -1,6 +1,7 @@
 local M = {}
 local utils = require "peepsight.utils"
 local sight = require "peepsight.sight"
+local ts_helpers = require "peepsight.treesitter-helpers"
 
 local ns = vim.api.nvim_create_namespace "peepsight"
 
@@ -20,6 +21,10 @@ local default_queries = {
   "generator_function_declaration",
 }
 
+function M.center()
+  sight.center(M.queries)
+end
+
 function M.enable()
   M.options.enable = true
 
@@ -33,6 +38,10 @@ function M.disable()
   utils.clear(ns)
 end
 
+function M.enable_center()
+  M.enable()
+  M.center()
+end
 
 function M.setup(queries)
   M.options = vim.tbl_deep_extend("force", {}, defaults, {})
